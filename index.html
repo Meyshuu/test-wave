@@ -1,0 +1,36 @@
+        <!DOCTYPE html>
+        <html lang="id">
+        <head>
+            <meta charset="UTF-8">
+            <title>Grafik Musik</title>
+            <script src="https://unpkg.com/wavesurfer.js"></script>
+            <style>
+                #waveform { width: 100%; height: 200px; } /* Ukuran grafik */
+            </style>
+        </head>
+        <body>
+            <h1>Visualisasi Waveform Musik</h1>
+            <div id="waveform"></div>
+            <button id="play">Play</button>
+            
+            <script>
+                // Inisialisasi Wavesurfer
+                var wavesurfer = WaveSurfer.create({
+                    container: '#waveform',
+                    waveColor: 'violet',  // Warna grafik waveform
+                    progressColor: 'purple',
+                    height: 200,  // Tinggi grafik
+                    responsive: true  // Responsive untuk mobile
+                });
+
+                // Load file audio (ganti dengan path file MP3 Anda, misalnya dari server)
+                wavesurfer.load('path/to/your/music.mp3');  // Upload file audio ke server dulu
+
+                // Event play/pause
+                document.getElementById('play').onclick = function() {
+                    wavesurfer.playPause();
+                };
+            </script>
+        </body>
+        </html>
+        
